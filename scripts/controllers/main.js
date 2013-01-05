@@ -64,21 +64,7 @@ MapApp.controller('MainCtrl', function($scope, firebase) {
       navigator.geolocation.getCurrentPosition(
         function(position){
           firebase.push({'latitude' : position.coords.latitude, 'longitude' : position.coords.longitude});
-          /*
-          socket.on('connect', function(){
-            socket.emit("add", {'latitude' : position.coords.latitude, 'longitude' : position.coords.longitude});
-          });
-          */
           $scope.myMap.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-          /*
-          setInterval ( function() {
-
-            socket.emit("add", {
-              'latitude' : position.coords.latitude,
-              'longitude' : position.coords.longitude
-            });
-        }, 10000);
-        */
         }, function() {}, {maximumAge: 75000}
       );
     }
