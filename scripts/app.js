@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-var MapApp = angular.module('MapApp', ["ui"])
-  .config(['$routeProvider', function($routeProvider) {
+const MapApp = angular.module('MapApp', ['ngRoute', 'ui'])
+  .config(['$routeProvider', ($routeProvider) => {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -9,5 +9,5 @@ var MapApp = angular.module('MapApp', ["ui"])
       })
       .otherwise({
         redirectTo: '/'
-      });
-  }]);
+      })
+  }])
